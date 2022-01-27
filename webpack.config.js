@@ -6,18 +6,22 @@ const { DefinePlugin } = require('webpack');
 module.exports = {
   /** 打包入口函数 */
   entry: {
-    path: './src/main.js'
+    path: './src/main.ts'
   },
   /** 打包目录 */
   output: {
       filename: 'assets/js/[name].[contenthash:6].js',
       path: path.resolve(__dirname, './dist')
   },
+  devServer: {
+    port: 3000,
+    compress: true,
+  },
   module: { // loaders
     rules: [
       {
         test: /\.vue$/,
-        use: 'vue-loader', // 解析.vue文件
+        loader: 'vue-loader', // 解析.vue文件
       },
       {
         test: /\.css$/,

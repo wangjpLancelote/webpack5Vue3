@@ -6,6 +6,8 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "webpackDev": "webpack server --mode=development",
+    "webpackDevConfig": "webpack serve --open --config webpack.dev.js",
+    "webpackProdConfig": "webpack --config webpack.prod.js",
     "webpackBuild": "webpack --mode=production"
   },
   "dependencies": {
@@ -31,6 +33,7 @@
     "vue-tsc": "^0.29.8",
     "webpack": "^5.67.0",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.3"
+    "webpack-dev-server": "^4.7.3",
+    "webpack-merge": "^5.8.0"
   }
 }
