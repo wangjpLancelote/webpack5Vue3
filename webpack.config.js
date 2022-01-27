@@ -48,15 +48,23 @@ module.exports = {
         }
       },
       {
-        test: /\.(js|mjs|jsx|ts|tsx)$/,
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        },
+        options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
       },
+      // {
+      //   test: /\.(js|mjs|jsx|ts|tsx)$/,
+      //   exclude: /node_modules/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: ['@babel/preset-env']
+      //     }
+      //   },
+      // },
     ]
   },
   plugins: [
