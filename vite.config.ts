@@ -18,5 +18,12 @@ export default defineConfig({
     assetsInlineLimit: 4096, // 4KB base64地址大小
     cssCodeSplit: true, // css 文件拆分 否则会打包到一个css文件中
     sourcemap: false //是否生成sourcemap
+  },
+  server: {
+    port: 3333,
+    open: true,
+    proxy: {
+      
+    }
   }
 })

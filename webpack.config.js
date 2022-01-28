@@ -30,15 +30,15 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: ['style-loader', 'css-loader', 'sass-loader'] // 解析sass/scss文件
       },
       {
         test: /\.less$/i,
-        use: [ 'style-loader', 'css-loader', 'less-loader' ],
+        use: [ 'style-loader', 'css-loader', 'less-loader' ], // 解析less 文件
       },
       {
         test: /\.styl$/,
-        loader: 'stylus-loader'
+        loader: 'stylus-loader' // vue stylus样式 
       },
       {
         test: /\.(png|jpe?g|gif)$/,
@@ -50,7 +50,7 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
-        exclude: /node_modules/,
+        exclude: /node_modules/, // 针对tsx, .vue文件的lang=ts 的情况进行解析
         options: {
           appendTsSuffixTo: [/\.vue$/]
         }
@@ -70,11 +70,11 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(), // vue3loader plugins 注册
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './index.html'), // 给打包后的js指定模板文件
+      template: path.resolve(__dirname, './webpackIndex.html'), // 给打包后的js指定模板文件, 这里和vite 的模板区分一下, vite使用index.html
     }),
     new DefinePlugin({
-      __VUE_PROD_DEVTOOLS: false, // vue全局变量,是否生产包支持devTools插件
-      __VUE_OPTIONS_API: false, // vue 的全局变量, 是否使用options API,即vue2的写法
+      __VUE_PROD_DEVTOOLS: false, // vue全局变量,是否生产包支持devTools插件, vue工程构建完成后会出现此warning
+      __VUE_OPTIONS_API: false, // vue 的全局变量, 是否使用options API,即vue2的写法, vue工程构建完成后会出现此warning
     })
   ]
 }
